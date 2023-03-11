@@ -1,4 +1,4 @@
-# fly.toml file generated for form-usulan-api on 2023-03-11T23:35:59+07:00
+# fly.toml file generated for form-usulan-api on 2023-03-11T23:49:47+07:00
 
 app = "form-usulan-api"
 kill_signal = "SIGINT"
