@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proposal_form', function (Blueprint $table) {
+        Schema::create('proposal_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')();
-            $table->integer('stechelon_id')();
-            $table->integer('type_id')();
-            $table->integer('priority_id')();
-            $table->string('name')();
-            $table->string('apk_name')();
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proposal_form');
+        Schema::dropIfExists('proposal_types');
     }
 };

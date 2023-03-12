@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('priority_level', function (Blueprint $table) {
+        Schema::create('jfups', function (Blueprint $table) {
             $table->id();
-            $table->string('name')();
+            $table->unsignedBigInteger('proposal_form_id');
+            $table->unsignedBigInteger('proposal_type_id');
+            $table->unsignedBigInteger('priority_level_id');
+            $table->string('feature');
+            $table->text('statement');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('priority_level');
+        Schema::dropIfExists('jfups');
     }
 };

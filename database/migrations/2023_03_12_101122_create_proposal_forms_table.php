@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jfup', function (Blueprint $table) {
+        Schema::create('proposal_forms', function (Blueprint $table) {
             $table->id();
-            $table->integer('form_id')();
-            $table->string('type')();
-            $table->string('feature')();
-            $table->string('statement')();
-            $table->string('priority')();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('second_echelon_id');
+            $table->string('application_name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jfup');
+        Schema::dropIfExists('proposal_forms');
     }
 };

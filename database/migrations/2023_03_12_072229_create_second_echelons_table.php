@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('first_echelon', function (Blueprint $table) {
+        Schema::create('second_echelons', function (Blueprint $table) {
             $table->id();
-            $table->string('name')();
+            $table->unsignedBigInteger('first_echelon_id');
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('first_echelon');
+        Schema::dropIfExists('second_echelons');
     }
 };

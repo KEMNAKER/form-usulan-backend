@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('second_echelon', function (Blueprint $table) {
+        Schema::create('priority_levels', function (Blueprint $table) {
             $table->id();
-            $table->integer('stechelon_id')();
-            $table->string('name')();
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('second_echelon');
+        Schema::dropIfExists('priority_levels');
     }
 };
