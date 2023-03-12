@@ -24,5 +24,11 @@ class ProposalTypeSeeder extends Seeder
         ProposalType::updateOrCreate([
             'name' => 'D',
         ]);
+        ProposalType::updateOrCreate([
+            'name' => 'E',
+        ]);
+        ProposalType::updateOrCreate([
+            'name' => 'F',
+        ]);
     }
 }

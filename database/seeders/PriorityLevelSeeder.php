@@ -13,13 +13,13 @@ class PriorityLevelSeeder extends Seeder
     public function run(): void
     {
         PriorityLevel::updateOrCreate([
-            'name' => 'HP',
+            'name' => 'High Priority (HP)',
         ]);
         PriorityLevel::updateOrCreate([
-            'name' => 'MP',
+            'name' => 'Medium Priority (MP)',
         ]);
         PriorityLevel::updateOrCreate([
-            'name' => 'LP',
+            'name' => 'Low Priority (LP)',
         ]);
     }
 }
