@@ -63,9 +63,6 @@ RUN if [ -f "vite.config.js" ]; then \
     if [ -f "yarn.lock" ]; then \
         yarn install --frozen-lockfile; \
         yarn $ASSET_CMD; \
-    elif [ -f "package-lock.json" ]; then \
-        npm ci --no-audit; \
-        npm run $ASSET_CMD; \
     else \
         npm install; \
         npm run $ASSET_CMD; \
