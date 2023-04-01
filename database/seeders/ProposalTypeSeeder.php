@@ -13,22 +13,28 @@ class ProposalTypeSeeder extends Seeder
     public function run(): void
     {
         ProposalType::updateOrCreate([
-            'name' => 'A',
+            'code' => 'A',
+            'name' => 'PEMBANGUNAN APLIKASI BARU',
         ]);
         ProposalType::updateOrCreate([
-            'name' => 'B',
+            'code' => 'B',
+            'name' => 'PENAMBAHAN FITUR BARU DARI APLIKASI',
         ]);
         ProposalType::updateOrCreate([
-            'name' => 'C',
+            'code' => 'C',
+            'name' => 'PENGEMBANGAN FITUR DARI APLIKASI SAAT INI',
         ]);
         ProposalType::updateOrCreate([
-            'name' => 'D',
+            'code' => 'D',
+            'name' => 'INTEGRASI DENGAN APLIKASI INTERNAL',
         ]);
         ProposalType::updateOrCreate([
-            'name' => 'E',
+            'code' => 'E',
+            'name' => 'INTEGRASI DENGAN APLIKASI EKSTERNAL',
         ]);
         ProposalType::updateOrCreate([
-            'name' => 'F',
+            'code' => 'F',
+            'name' => 'AKSES DATABASE',
         ]);
     }
 }

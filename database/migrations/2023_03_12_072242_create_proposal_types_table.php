@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('proposal_types', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

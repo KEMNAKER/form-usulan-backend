@@ -15,6 +15,7 @@ class ProposalType extends Model
      * @var array
      */
     protected $fillable = [
+        'code',
         'name',
     ];
 }

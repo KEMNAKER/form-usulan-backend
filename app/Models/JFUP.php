@@ -11,6 +11,11 @@ class JFUP extends Model
     use HasFactory;
 
     /**
+     * Configure the table name
+     */
+    protected $table = 'jfups';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

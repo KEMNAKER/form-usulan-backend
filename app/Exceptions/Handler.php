@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,5 +46,43 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     */
+    public function render($request, $exception)
+    {
+        if (! $request->wantsJson() or $exception instanceof ValidationException) {
+            return parent::render($request, $exception);
+        }
+
+        // if the request wants JSON + exception is not ValidationException
+        $response['message'] = $exception->getMessage();
+
+        // verify the app is in debug mode
+        if (config('app.debug')) {
+            // Add the exception class name, message and stack trace to response
+            $response['exception'] = get_class($exception); // Reflection might be better here
+            $response['trace'] = $exception->getTrace();
+        }
+
+        // default response of 400
+        $status = 400;
+
+        // if this exception is an instance of AuthenticationException
+        if ($exception instanceof AuthenticationException) {
+            // set the status code
+            $status = 401;
+        }
+
+        // if this exception is an instance of HttpException
+        if ($this->isHttpException($exception)) {
+            // grab the HTTP status code from the Exception
+            $status = $exception->getStatusCode();
+        }
+
+        // return a JSON response with the response array and status code
+        return response()->json($response, $status);
     }
 }
